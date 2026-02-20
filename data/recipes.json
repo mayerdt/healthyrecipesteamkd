@@ -1,5 +1,107 @@
-﻿{
-  "version": "1.0",
-  "lastUpdated": "2026-02-20",
-  "recipes": []
+{
+  "recipes": [
+    {
+      "name": "Grilled Chicken Caprese with Burrata Recipe",
+      "category": "meat",
+      "calories": 375,
+      "servings": 4,
+      "prepTime": "20 min",
+      "cookTime": "15 min",
+      "totalTime": "",
+      "emoji": "🍖",
+      "source": "https://therealfooddietitians.com/chicken-caprese/#tasty-recipes-68440",
+      "notes": "",
+      "ingredients": [
+        "½ cup balsamic vinegar (or use a store bought balsamic glaze)",
+        "2 tablespoons extra virgin olive oil",
+        "2 tablespoons balsamic vinegar",
+        "2 teaspoons dried Italian seasoning",
+        "1 teaspoon pure honey",
+        "½ teaspoon fine salt",
+        "¼ teaspoon black pepper",
+        "1 &#8211; 1 ¼ lb. boneless skinless chicken breasts, pounded to ¾-inch thickness and cut into 4 portions (if using 2 large breasts)",
+        "1 pint (2 cups) cherry or grape tomatoes, halved",
+        "2 teaspoons extra virgin olive oil",
+        "Pinch of fine salt",
+        "⅓ &#8211; ½ cup thinly sliced fresh basil leaves",
+        "1 8-ounce or 2 4-ounce ball(s) fresh burrata cheese, drained and cut into quarters or halves, depending on size (4 portions total)"
+      ],
+      "steps": [
+        "If making the homemade balsamic glaze, add the balsamic vinegar to a small saucepan over medium-high heat.",
+        "Bring to a boil then reduce heat to low and simmer until reduced by half (about 10-15 minutes), stirring occasionally.",
+        "Remove the pan from the heat and allow the glaze to cool. NOTE: It will thicken as it cools. This step can be done up to 4 days in advance. Store unused glaze in an airtight container with lid for up to 1 week in the refrigerator.",
+        "Make the chicken marinade by whisking together the 2 tablespoons olive oil, balsamic vinegar, Italian seasoning, honey, salt, and pepper in a shallow bowl or glass pie plate.",
+        "Add the chicken pieces and turn them 2 to 3 times to coat both sides. Then nestle the chicken into the marinade, cover, and marinate in the refrigerator for 30 minutes or up to 8 hours.",
+        "When ready to cook, preheat an outdoor grill (or use a grill pan on the stove) to medium-high heat (400℉).",
+        "When the grill is hot, remove the chicken from the marinade, allowing excess marinade to drip off. Discard the leftover marinade.",
+        "Add the chicken directly to the grill grate and cook over indirect heat for 5-6 minutes.",
+        "Flip the chicken over and cook until the chicken is cooked through and no longer pink in the thickest part, an additional 4-6 minutes. Transfer the chicken to a clean plate.",
+        "While the chicken is cooking, prepare the tomato salad. In a medium bowl, combine the cherry tomatoes, olive oil, and a pinch of salt. Toss gently to combine, then fold the sliced basil into the tomato mixture.",
+        "To serve, top each chicken breast with a 2-ounce portion of the burrata and ½ cup of the tomato-basil mixture.",
+        "Drizzle with 1-2 teaspoons balsamic glaze and sprinkle with flaky sea salt and black pepper. Serve immediately."
+      ],
+      "tags": [],
+      "nutrition": {
+        "calories": 375,
+        "fat": "20 g",
+        "saturatedFat": "9 g",
+        "carbs": "8 g",
+        "fiber": "1 g",
+        "sugar": "7 g",
+        "protein": "40 g",
+        "sodium": "260 mg"
+      },
+      "thumbnail": "https://therealfooddietitians.com/wp-content/uploads/2025/07/grilled-chicken-with-burrata-5-225x225.jpg",
+      "id": "rmlvcv00akvdd",
+      "dateAdded": "2026-02-20"
+    },
+    {
+      "name": "Chicken and Lime Soup",
+      "category": "soups",
+      "calories": 203,
+      "servings": 6,
+      "prepTime": "10 min",
+      "cookTime": "60 min",
+      "totalTime": "",
+      "emoji": "🍜",
+      "source": "https://www.budgetbytes.com/chicken-lime-soup/",
+      "notes": "Add 1cup corn for extra flavor/texture",
+      "ingredients": [
+        "1  yellow onion ($0.21)",
+        "3  ribs celery  (about 1/4 bunch, $0.37)",
+        "1  jalapeño  ($0.17)",
+        "4 cloves garlic  ($0.32)",
+        "2 Tbsp olive oil  ($0.32)",
+        "1  boneless, skinless chicken breast  (about 3/4 lb. , $2.32)",
+        "6 cups chicken broth (*, $0.78)",
+        "2 10oz. cans diced tomatoes with green chiles (Rotel) ($0.90)",
+        "1 tsp oregano ($0.10)",
+        "1/2 Tbsp cumin  ($0.15)",
+        "1  lime  ($0.22)",
+        "1/2  bunch cilantro  ($0.40)",
+        "1  avocado  ($1.50)"
+      ],
+      "steps": [
+        "Dice the onion, celery, and jalapeño (scrape the seeds out of the jalapeño before dicing). Mince the garlic. Add the onion, celery, jalapeño, garlic, and olive oil to a large soup pot and cook over medium heat for about 5 minutes, or until the onions are soft and translucent.",
+        "Add the chicken breast, chicken broth, diced tomatoes with chiles (with juices), oregano, and cumin to the pot. Place a lid on the pot, turn the heat up to high, and bring the broth up to a boil. Once boiling, turn the heat down to low and let the pot simmer for 45 minutes.",
+        "After simmering for 45 minutes, carefully remove the chicken breast from the pot and use two forks to shred the meat. Return the shredded meat to the pot. Squeeze the juice of one lime into the soup (2-3 Tbsp juice).",
+        "Rinse the cilantro and then roughly chop the leaves. Add the chopped cilantro to the soup, give it a quick stir, then serve. Slice the avocado and add a few slices to each bowl."
+      ],
+      "tags": [
+        "chicken soup"
+      ],
+      "nutrition": {
+        "calories": 203,
+        "fat": "11.27 g",
+        "carbs": "12.35 g",
+        "fiber": "3.73 g",
+        "protein": "15.9 g",
+        "sodium": "1289.98 mg"
+      },
+      "thumbnail": "https://www.budgetbytes.com/wp-content/uploads/2012/10/Chicken-and-Lime-Soup-above.jpg",
+      "id": "rmlvcyss2lhqf",
+      "dateAdded": "2026-02-20"
+    }
+  ],
+  "version": "1.0"
 }
