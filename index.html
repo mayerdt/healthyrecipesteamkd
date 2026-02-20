@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Our personal recipe tracker — organized by category with calories, notes, and more." />
+  <title>Team KD's Recipes 🍽️</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="site-logo" href="index.html" aria-label="Recipe Tracker home">
+      <span class="logo-icon">🍽️</span>
+      <span>
+        <span class="logo-text">Team KD's Recipes</span>
+        <span class="logo-sub">Katie &amp; Dan's Favorites</span>
+      </span>
+    </a>
+
+    <div class="header-search">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search recipes, ingredients, tags…"
+        autocomplete="off"
+        aria-label="Search recipes"
+      />
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-primary" id="btn-add-header" aria-label="Add new recipe">
+        ➕ Add Recipe
+      </button>
+      <button class="btn-icon" id="btn-settings" title="Settings" aria-label="Open settings">⚙️</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CATEGORY FILTER BAR
+═══════════════════════════════════════════════════════════ -->
+<nav class="category-bar" aria-label="Filter by category">
+  <div class="category-bar-inner" id="cat-bar-inner">
+    <!-- Dynamically populated by app.js -->
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO / STATS
+═══════════════════════════════════════════════════════════ -->
+<section class="hero-section" aria-label="Recipe stats">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>Team <span>KD's</span> Recipes</h1>
+      <p>All the meals we love — organized, searchable, and always close at hand.</p>
+    </div>
+    <div class="stats-bar" role="list">
+      <div class="stat-item" role="listitem">
+        <div class="stat-num" id="stat-total">0</div>
+        <div class="stat-label">Recipes</div>
+      </div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-num" id="stat-cats">0</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-num" id="stat-notes">0</div>
+        <div class="stat-label">With Notes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════════════════════ -->
+<main class="main-content" aria-live="polite">
+  <div class="container" id="recipes-container">
+    <!-- Populated by app.js -->
+  </div>
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FLOATING ADD BUTTON
+═══════════════════════════════════════════════════════════ -->
+<button class="fab" id="fab-add" aria-label="Add new recipe" title="Add new recipe">+</button>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ADD RECIPE MODAL
+═══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="add-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="add-modal-title">
+  <div class="modal modal-wide">
+
+    <div class="modal-header">
+      <h3 id="add-modal-title">➕ Add New Recipe</h3>
+      <button class="modal-close" id="add-modal-close" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Tabs -->
+      <div class="modal-tabs" role="tablist">
+        <button class="modal-tab active" data-tab="url" role="tab" aria-selected="true">🔗 From URL</button>
+        <button class="modal-tab" data-tab="manual" role="tab" aria-selected="false">✏️ Add Manually</button>
+      </div>
+
+      <!-- Tab: From URL -->
+      <div id="tab-url">
+        <div class="form-group">
+          <label class="form-label" for="recipe-url-input">Recipe URL</label>
+          <div class="input-with-btn">
+            <input
+              type="url"
+              id="recipe-url-input"
+              class="form-input"
+              placeholder="https://www.allrecipes.com/recipe/..."
+              autocomplete="off"
+            />
+            <button class="btn btn-primary" id="btn-fetch-recipe">🔍 Fetch Recipe</button>
+          </div>
+          <p class="form-hint">Paste a URL from AllRecipes, Food Network, Serious Eats, NYT Cooking, and most other recipe sites.</p>
+        </div>
+
+        <!-- Scrape status -->
+        <div class="scrape-status hidden" id="scrape-status"></div>
+
+        <!-- Preview -->
+        <div id="recipe-preview-section" class="hidden">
+          <div class="recipe-preview" id="recipe-preview"></div>
+          <p class="form-hint" style="margin-bottom:0">Review the extracted details below. You can edit anything before saving.</p>
+          <div class="divider"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Manual -->
+      <div id="tab-manual" class="hidden"></div>
+
+      <!-- ── Shared Edit Form (shown after fetch or on manual tab) ── -->
+      <div id="manual-form-section" class="hidden">
+        <div class="form-row">
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label" for="man-name">Recipe Name *</label>
+            <input type="text" id="man-name" class="form-input" placeholder="e.g. Creamy Tomato Basil Soup" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="man-category">Category</label>
+            <select id="man-category" class="form-select">
+              <option value="soups">🍜 Soups &amp; Stews</option>
+              <option value="pasta">🍝 Pasta &amp; Noodles</option>
+              <option value="salads">🥗 Salads</option>
+              <option value="meat" selected>🍖 Meat &amp; Poultry</option>
+              <option value="seafood">🐟 Seafood</option>
+              <option value="vegetables">🥦 Vegetables &amp; Sides</option>
+              <option value="casseroles">🥘 Casseroles &amp; Bakes</option>
+              <option value="mexican">🌮 Mexican &amp; Tex-Mex</option>
+              <option value="asian">🍱 Asian Cuisine</option>
+              <option value="breakfast">🥐 Breakfast &amp; Brunch</option>
+              <option value="pizza">🍕 Pizza &amp; Flatbreads</option>
+              <option value="desserts">🎂 Desserts &amp; Sweets</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="man-emoji">Emoji Icon</label>
+            <input type="text" id="man-emoji" class="form-input" placeholder="🍅 (leave blank for category default)" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="man-calories">Calories / Serving</label>
+            <input type="number" id="man-calories" class="form-input" placeholder="e.g. 350" min="0" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="man-servings">Servings</label>
+            <input type="number" id="man-servings" class="form-input" placeholder="e.g. 4" min="1" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="man-prep">Prep Time</label>
+            <input type="text" id="man-prep" class="form-input" placeholder="e.g. 15 min" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="man-cook">Cook Time</label>
+            <input type="text" id="man-cook" class="form-input" placeholder="e.g. 30 min" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="man-ingredients">Ingredients</label>
+          <textarea
+            id="man-ingredients"
+            class="form-textarea"
+            placeholder="One ingredient per line:&#10;2 cups flour&#10;1 tsp salt&#10;3 tbsp olive oil"
+            rows="6"
+          ></textarea>
+          <p class="form-hint">One ingredient per line. Add a blank line to create a visual section break.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="man-steps">Cooking Steps</label>
+          <textarea
+            id="man-steps"
+            class="form-textarea"
+            placeholder="One step per paragraph (separate with blank lines):&#10;&#10;Heat oil in a large pan over medium heat.&#10;&#10;Add onions and cook until softened, about 5 minutes."
+            rows="7"
+          ></textarea>
+          <p class="form-hint">Separate steps with a blank line. Numbers will be added automatically.</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="man-tags">Tags</label>
+            <input type="text" id="man-tags" class="form-input" placeholder="healthy, quick, meal prep (comma-separated)" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="man-source">Source URL</label>
+            <input type="url" id="man-source" class="form-input" placeholder="https://..." />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="man-notes">Personal Notes</label>
+          <textarea
+            id="man-notes"
+            class="form-textarea"
+            placeholder="Add your personal notes, modifications, or tips here…"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+
+    </div><!-- /modal-body -->
+
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
+      <button class="btn btn-success btn-lg hidden" id="btn-confirm-add">💾 Save Recipe</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SETTINGS MODAL
+═══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="settings-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+  <div class="modal">
+
+    <div class="modal-header">
+      <h3 id="settings-modal-title">⚙️ Settings</h3>
+      <button class="modal-close" id="settings-modal-close" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- GitHub Sync -->
+      <div class="settings-section">
+        <div class="settings-section-title">🐙 GitHub Sync (Optional)</div>
+        <div class="settings-info">
+          Connect to GitHub to automatically save your recipe data and individual recipe pages to your repository.
+          You'll need a <a href="https://github.com/settings/tokens/new?scopes=repo&description=Recipe+Tracker" target="_blank" rel="noopener">Personal Access Token</a> with <strong>repo</strong> (or <strong>Contents: Read &amp; Write</strong> for fine-grained) permissions.
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="set-token">Personal Access Token</label>
+          <input type="password" id="set-token" class="form-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+          <p class="form-hint">Stored locally in your browser — never sent anywhere except the GitHub API.</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="set-owner">GitHub Username / Org</label>
+            <input type="text" id="set-owner" class="form-input" placeholder="yourusername" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="set-repo">Repository Name</label>
+            <input type="text" id="set-repo" class="form-input" placeholder="healthyrecipesteamkd" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="set-branch">Branch</label>
+          <input type="text" id="set-branch" class="form-input" placeholder="main" value="main" />
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div class="settings-section">
+        <div class="settings-section-title">💾 Data Management</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <button class="btn btn-outline" id="btn-export">📥 Export JSON Backup</button>
+          <button class="btn btn-outline" id="btn-import">📤 Import JSON</button>
+          <button class="btn btn-danger btn-sm" id="btn-reset-data">🔄 Reset to Seed Data</button>
+        </div>
+        <p class="form-hint" style="margin-top:10px">Export saves all your recipes as a JSON file. Import merges recipes from a backup file. Reset restores the original 10 sample recipes.</p>
+        <input type="file" id="import-file" accept=".json" class="hidden" />
+      </div>
+
+    </div><!-- /modal-body -->
+
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeSettings()">Cancel</button>
+      <button class="btn btn-primary" id="btn-save-settings">💾 Save Settings</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOAST NOTIFICATIONS
+═══════════════════════════════════════════════════════════ -->
+<div class="toast-container" id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════════ -->
+<script src="js/config.js"></script>
+<script src="js/db.js"></script>
+<script src="js/scraper.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

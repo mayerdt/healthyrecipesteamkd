@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe — Team KD's Recipes</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Print styles */
+    @media print {
+      .site-header, .page-nav, .notes-section, .fab, .toast-container,
+      .btn-delete-recipe, .btn-print, .hero-actions { display: none !important; }
+      body { background: white; }
+      .recipe-hero { background: white !important; border: none; }
+      .detail-content { padding-top: 16px; }
+      .detail-layout { grid-template-columns: 1fr; }
+      .detail-card, .detail-sidebar { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body class="recipe-detail-page">
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-logo" href="index.html" aria-label="Recipe Tracker home">
+      <span class="logo-icon">🍽️</span>
+      <span>
+        <span class="logo-text">Team KD's Recipes</span>
+        <span class="logo-sub">Katie &amp; Dan's Favorites</span>
+      </span>
+    </a>
+    <div class="header-actions">
+      <button class="btn btn-outline" id="btn-back" aria-label="Back to all recipes">← Back to Recipes</button>
+      <button class="btn-icon" id="btn-print" title="Print recipe" aria-label="Print recipe">🖨️</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     RECIPE HERO
+═══════════════════════════════════════════════════════════ -->
+<section class="recipe-hero">
+  <div class="container">
+    <div class="recipe-hero-inner">
+
+      <!-- Left: Text -->
+      <div class="recipe-hero-content">
+        <div class="recipe-hero-category" id="hero-category">🍽️ Category</div>
+        <h1 class="recipe-hero-title" id="hero-title">Loading…</h1>
+        <p id="recipe-description" class="hidden" style="color:var(--text-muted);font-size:0.97rem;margin-bottom:16px;line-height:1.65;max-width:640px"></p>
+
+        <div class="recipe-stats-row" id="recipe-stats-row">
+          <!-- Built by recipe-page.js -->
+        </div>
+
+        <div class="recipe-tags-row" id="recipe-tags-row" style="margin-top:10px">
+          <!-- Built by recipe-page.js -->
+        </div>
+
+        <div class="recipe-hero-actions hero-actions">
+          <a
+            id="hero-source"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-link hidden"
+            aria-label="View original recipe source"
+          >🔗 Original Source</a>
+          <a
+            id="hero-gh-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-link hidden"
+            aria-label="View GitHub recipe page"
+          >🐙 GitHub Page</a>
+          <button class="btn btn-danger btn-sm btn-delete-recipe" id="btn-delete-recipe" style="margin-left:auto">🗑 Delete</button>
+        </div>
+      </div>
+
+      <!-- Right: Big Emoji -->
+      <div class="recipe-hero-emoji-wrap" aria-hidden="true">
+        <span class="recipe-hero-emoji" id="hero-emoji">🍽️</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     DETAIL CONTENT
+═══════════════════════════════════════════════════════════ -->
+<main class="detail-content">
+  <div class="container">
+    <div class="detail-layout">
+
+      <!-- ── Sidebar: Ingredients + Nutrition ── -->
+      <aside class="detail-sidebar">
+
+        <!-- Ingredients Card -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <span class="detail-card-icon">📋</span>
+            <h3>Ingredients</h3>
+            <button
+              class="btn btn-ghost btn-sm"
+              id="btn-clear-checks"
+              style="margin-left:auto;font-size:0.78rem"
+              title="Uncheck all"
+            >Clear ✓</button>
+          </div>
+          <div class="detail-card-body">
+            <p class="form-hint" style="margin-bottom:10px">Click an ingredient to check it off while cooking!</p>
+            <div class="ingredient-list" id="ingredient-list">
+              <!-- Populated by recipe-page.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Nutrition Card -->
+        <div class="detail-card" id="nutrition-card">
+          <div class="detail-card-header">
+            <span class="detail-card-icon">📊</span>
+            <h3>Nutrition Facts</h3>
+          </div>
+          <div class="detail-card-body">
+            <p class="form-hint" style="margin-bottom:12px" id="nutrition-note">Per serving</p>
+            <div class="nutrition-grid" id="nutrition-grid">
+              <!-- Populated by recipe-page.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Ratings Card -->
+        <div class="detail-card ratings-card">
+          <div class="detail-card-header">
+            <span class="detail-card-icon">⭐</span>
+            <h3>Our Ratings</h3>
+          </div>
+          <div class="detail-card-body">
+            <p class="form-hint" style="margin-bottom:14px">Score 0–10. Leave blank if you haven't tried it yet!</p>
+
+            <!-- Katie -->
+            <div class="rater-row">
+              <div class="rater-label"><span class="rater-emoji">💕</span> Katie</div>
+              <div class="rating-input-wrap">
+                <input
+                  type="number"
+                  id="katie-rating"
+                  class="rating-num-input"
+                  min="0" max="10" step="1"
+                  placeholder="—"
+                  aria-label="Katie's rating 0 to 10"
+                />
+                <span class="rating-out-of">/10</span>
+                <div class="rating-dots-display" id="katie-dots"></div>
+              </div>
+            </div>
+
+            <!-- Dan -->
+            <div class="rater-row">
+              <div class="rater-label"><span class="rater-emoji">🧔</span> Dan</div>
+              <div class="rating-input-wrap">
+                <input
+                  type="number"
+                  id="dan-rating"
+                  class="rating-num-input"
+                  min="0" max="10" step="1"
+                  placeholder="—"
+                  aria-label="Dan's rating 0 to 10"
+                />
+                <span class="rating-out-of">/10</span>
+                <div class="rating-dots-display" id="dan-dots"></div>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;display:flex;align-items:center;gap:12px">
+              <button class="btn btn-primary btn-sm" id="btn-save-ratings">💾 Save Ratings</button>
+              <span class="notes-saved-badge" id="ratings-saved-badge">✅ Ratings saved!</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── Main: Steps + Notes ── -->
+      <div class="detail-main">
+
+        <!-- Cooking Steps Card -->
+        <div class="detail-card" style="margin-bottom:28px">
+          <div class="detail-card-header">
+            <span class="detail-card-icon">👨‍🍳</span>
+            <h3>Instructions</h3>
+          </div>
+          <div class="detail-card-body">
+            <div class="steps-list" id="steps-list">
+              <!-- Populated by recipe-page.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="notes-section">
+          <div class="notes-header">
+            <h3><span>📝</span> Our Notes</h3>
+          </div>
+          <div class="notes-body">
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px">
+              Personal modifications, tips, and thoughts about this recipe. Press <kbd style="background:var(--surface-alt);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:0.78rem">Ctrl+S</kbd> to save quickly.
+            </p>
+            <textarea
+              id="notes-textarea"
+              class="notes-textarea"
+              placeholder="Write your personal notes here…&#10;&#10;e.g. We double the garlic and serve with sourdough bread. Next time try adding a pinch of smoked paprika!"
+              aria-label="Personal notes for this recipe"
+            ></textarea>
+            <div class="notes-footer">
+              <span class="notes-saved-badge" id="notes-saved-badge">✅ Notes saved!</span>
+              <button class="btn btn-success" id="btn-save-notes">💾 Save Notes</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /detail-main -->
+
+    </div><!-- /detail-layout -->
+  </div>
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOAST NOTIFICATIONS
+═══════════════════════════════════════════════════════════ -->
+<div class="toast-container" id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════════ -->
+<script src="js/config.js"></script>
+<script src="js/db.js"></script>
+<script src="js/recipe-page.js"></script>
+
+</body>
+</html>
