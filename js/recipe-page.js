@@ -31,7 +31,13 @@ function renderRecipePage(recipe) {
   document.title = `${recipe.name} — Team KD's Recipes`;
 
   // Hero
-  document.getElementById('hero-emoji').textContent      = recipe.emoji || cat.emoji;
+  const visualWrap = document.getElementById('hero-visual');
+  if (recipe.thumbnail) {
+    visualWrap.innerHTML = `<img class="recipe-hero-img" src="${recipe.thumbnail}" alt="${recipe.name}"
+      onerror="this.outerHTML='<span class=\'recipe-hero-emoji\'>${recipe.emoji || cat.emoji}</span>'">`;
+  } else {
+    document.getElementById('hero-emoji').textContent = recipe.emoji || cat.emoji;
+  }
   document.getElementById('hero-category').textContent   = `${cat.emoji} ${cat.label}`;
   document.getElementById('hero-title').textContent      = recipe.name;
 
