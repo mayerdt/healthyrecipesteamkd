@@ -286,13 +286,16 @@ async function saveRatings() {
     dan:   danVal   !== '' ? Math.min(10, Math.max(0, parseInt(danVal)))   : null,
   };
 
-  await recipeDB.update(currentRecipe.id, { ratings });
+  const result = await recipeDB.update(currentRecipe.id, { ratings });
   currentRecipe.ratings = ratings;
 
-  const badge = document.getElementById('ratings-saved-badge');
-  if (badge) { badge.classList.add('show'); setTimeout(() => badge.classList.remove('show'), 3000); }
-
-  showPageToast('Ratings saved!', 'success');
+  if (result && result._syncOk === false) {
+    showPageToast(`⚠️ Ratings saved locally but GitHub sync failed: ${result._syncError}`, 'warning');
+  } else {
+    const badge = document.getElementById('ratings-saved-badge');
+    if (badge) { badge.classList.add('show'); setTimeout(() => badge.classList.remove('show'), 3000); }
+    showPageToast('Ratings saved!', 'success');
+  }
 }
 
 // ── Notes ─────────────────────────────────────────────────────
