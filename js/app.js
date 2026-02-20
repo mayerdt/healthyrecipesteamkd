@@ -249,8 +249,8 @@ function bindEvents() {
     if (e.key === 'Enter') fetchRecipeFromURL();
   });
 
-  // Confirm add recipe
-  document.getElementById('btn-confirm-add').addEventListener('click', confirmAddRecipe);
+  // Confirm add recipe — wire both top + bottom save buttons
+  document.querySelectorAll('.btn-confirm-add').forEach(b => b.addEventListener('click', confirmAddRecipe));
 
   // Save settings
   document.getElementById('btn-save-settings').addEventListener('click', saveSettingsForm);
@@ -283,7 +283,7 @@ function resetAddForm() {
   document.getElementById('scrape-status').className = 'scrape-status hidden';
   document.getElementById('recipe-preview-section').classList.add('hidden');
   document.getElementById('manual-form-section').classList.add('hidden');
-  document.getElementById('btn-confirm-add').classList.add('hidden');
+  document.querySelectorAll('.btn-confirm-add').forEach(b => b.classList.add('hidden'));
   clearManualForm();
 }
 
@@ -295,7 +295,7 @@ function switchAddTab(tab) {
 
   if (tab === 'manual') {
     document.getElementById('manual-form-section').classList.remove('hidden');
-    document.getElementById('btn-confirm-add').classList.remove('hidden');
+    document.querySelectorAll('.btn-confirm-add').forEach(b => b.classList.remove('hidden'));
     document.getElementById('recipe-preview-section').classList.add('hidden');
   } else {
     document.getElementById('manual-form-section').classList.add('hidden');
@@ -312,7 +312,7 @@ async function fetchRecipeFromURL() {
   setFetchBtn(true);
   showScrapeStatus('loading', '⏳ Fetching recipe...');
   document.getElementById('recipe-preview-section').classList.add('hidden');
-  document.getElementById('btn-confirm-add').classList.add('hidden');
+  document.querySelectorAll('.btn-confirm-add').forEach(b => b.classList.add('hidden'));
   pendingRecipe = null;
 
   try {
@@ -331,7 +331,7 @@ async function fetchRecipeFromURL() {
     }
 
     document.getElementById('manual-form-section').classList.remove('hidden');
-    document.getElementById('btn-confirm-add').classList.remove('hidden');
+    document.querySelectorAll('.btn-confirm-add').forEach(b => b.classList.remove('hidden'));
     populateManualForm(recipe);
   } catch (err) {
     // Safety net — scraper.scrape() should never throw, but just in case
@@ -339,7 +339,7 @@ async function fetchRecipeFromURL() {
       "⚠️ Couldn't reach that site. Fill in the details below and we'll link out."
     );
     document.getElementById('manual-form-section').classList.remove('hidden');
-    document.getElementById('btn-confirm-add').classList.remove('hidden');
+    document.querySelectorAll('.btn-confirm-add').forEach(b => b.classList.remove('hidden'));
     document.getElementById('man-source').value = url;
     const guessedName = url.split('/').filter(Boolean).pop()
       ?.replace(/[-_]+/g, ' ')
@@ -436,9 +436,8 @@ async function confirmAddRecipe() {
     recipe.emoji = (CATEGORIES[recipe.category] || { emoji: '🍽️' }).emoji;
   }
 
-  const btn = document.getElementById('btn-confirm-add');
-  btn.disabled = true;
-  btn.textContent = 'Saving...';
+  const allSaveBtns = document.querySelectorAll('.btn-confirm-add');
+  allSaveBtns.forEach(b => { b.disabled = true; b.textContent = 'Saving...'; });
 
   try {
     const saved = await recipeDB.add(recipe);
@@ -472,8 +471,7 @@ async function confirmAddRecipe() {
   } catch (e) {
     showToast('Error saving recipe: ' + e.message, 'error');
   } finally {
-    btn.disabled = false;
-    btn.textContent = '💾 Save Recipe';
+    allSaveBtns.forEach(b => { b.disabled = false; b.textContent = '💾 Save Recipe'; });
   }
 }
 

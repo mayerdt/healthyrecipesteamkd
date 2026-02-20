@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Our personal recipe tracker — organized by category with calories, notes, and more." />
   <title>Team KD's Recipes 🍽️</title>
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
 </head>
 <body>
 
@@ -101,7 +101,10 @@
 
     <div class="modal-header">
       <h3 id="add-modal-title">➕ Add New Recipe</h3>
-      <button class="modal-close" id="add-modal-close" aria-label="Close">✕</button>
+      <div class="modal-header-actions">
+        <button class="btn btn-success btn-sm hidden btn-confirm-add" id="btn-confirm-add-top">💾 Save Recipe</button>
+        <button class="modal-close" id="add-modal-close" aria-label="Close">✕</button>
+      </div>
     </div>
 
     <div class="modal-body">
@@ -246,7 +249,7 @@
 
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeAddModal()">Cancel</button>
-      <button class="btn btn-success btn-lg hidden" id="btn-confirm-add">💾 Save Recipe</button>
+      <button class="btn btn-success btn-lg hidden btn-confirm-add" id="btn-confirm-add">💾 Save Recipe</button>
     </div>
 
   </div>
@@ -326,10 +329,10 @@
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════════════════════════════ -->
-<script src="js/config.js?v=6"></script>
-  <script src="js/db.js?v=6"></script>
-  <script src="js/scraper.js?v=6"></script>
-  <script src="js/app.js?v=6"></script>
+<script src="js/config.js?v=7"></script>
+  <script src="js/db.js?v=7"></script>
+  <script src="js/scraper.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
 
 </body>
 </html>
