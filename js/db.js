@@ -39,20 +39,27 @@ class RecipeDB {
   /** Load recipes — always from GitHub API first when credentials exist so all devices stay in sync */
   async init() {
     const s = getSettings();
+    const hasGH = !!(s.githubToken && s.githubOwner && s.githubRepo);
+    console.log(`[db] init — GitHub configured: ${hasGH}`, hasGH ? `${s.githubOwner}/${s.githubRepo}` : '(no credentials)');
 
     // 1) If GitHub is configured, fetch the canonical copy directly via API.
     //    This bypasses any CDN/localStorage cache so every device always gets
     //    the same data regardless of what's stored locally.
-    if (s.githubToken && s.githubOwner && s.githubRepo) {
+    if (hasGH) {
       try {
         const content = await this._ghReadFile(s, 'data/recipes.json');
         if (content) {
-          this._data = JSON.parse(content);
+          const parsed = JSON.parse(content);
+          const count = (parsed.recipes || []).length;
+          console.log(`[db] ✅ Loaded ${count} recipe(s) from GitHub`);
+          this._data = parsed;
           this._persist(); // keep localStorage in sync as a write-through cache
           return;
+        } else {
+          console.warn('[db] GitHub fetch returned empty content');
         }
       } catch (e) {
-        console.warn('[db] GitHub fetch failed, falling back to localStorage:', e.message);
+        console.warn('[db] ❌ GitHub fetch failed, falling back to localStorage:', e.message);
       }
     }
 
@@ -61,6 +68,7 @@ class RecipeDB {
     if (raw) {
       try {
         this._data = JSON.parse(raw);
+        console.log(`[db] ⚠️ Using localStorage fallback — ${(this._data.recipes||[]).length} recipe(s)`);
         return;
       } catch (e) {
         console.warn('DB parse error, reloading seed data', e);
@@ -68,6 +76,7 @@ class RecipeDB {
     }
 
     // 3) Last resort: load the static seed file bundled with the app
+    console.log('[db] Loading seed file fallback');
     await this._loadSeed();
   }
 
