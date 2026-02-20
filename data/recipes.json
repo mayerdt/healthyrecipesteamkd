@@ -162,7 +162,12 @@
       },
       "thumbnail": "https://therealfooddietitians.com/wp-content/uploads/2021/07/Summer-Berry-Pasta-Salad_LowRes-018-225x225.jpg",
       "id": "rmlvdkpme3hi6",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 7
+      },
+      "lastModified": "2026-02-20"
     }
   ],
   "version": "1.0"
