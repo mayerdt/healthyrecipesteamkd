@@ -1,3 +1,8 @@
 # config.js is intentionally committed -- token is split across two variables
 # so GitHub's secret scanner won't flag it. The PAT is fine-grained and
 # scoped only to this one repo (Contents: read+write).
+
+# data/recipes.json is managed EXCLUSIVELY by the browser via GitHub Contents API.
+# NEVER commit or push this file -- doing so overwrites live recipe data.
+# Use deploy.ps1 instead of raw git push to avoid this.
+data/recipes.json
