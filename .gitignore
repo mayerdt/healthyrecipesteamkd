@@ -1,8 +1,19 @@
-# config.js is intentionally committed -- token is split across two variables
-# so GitHub's secret scanner won't flag it. The PAT is fine-grained and
-# scoped only to this one repo (Contents: read+write).
+# ─────────────────────────────────────────────────────────────────────────────
+# DEPLOYMENT NOTES — read before editing
+# ─────────────────────────────────────────────────────────────────────────────
 
-# data/recipes.json is managed EXCLUSIVELY by the browser via GitHub Contents API.
-# NEVER commit or push this file -- doing so overwrites live recipe data.
-# Use deploy.ps1 instead of raw git push to avoid this.
+# config.js is INTENTIONALLY committed and must NOT be added here.
+# The PAT inside is fine-grained and scoped to this repo only (Contents r+w).
+# The token is split across two JS variables so GitHub's secret scanner
+# doesn't block pushes. See js/config.js for details.
+
+# data/recipes.json is the live recipe database. It is written directly to
+# GitHub by the browser via the Contents API — NOT by git.
+# It is gitignored here so `git add -A` never stages the local copy.
+# deploy.ps1 also sets --skip-worktree on it so `git pull` restoring
+# the file locally doesn't cause index conflicts.
+#
+# NEVER `git push --force` — it will overwrite all live recipes.
+# ALWAYS deploy via: powershell -ExecutionPolicy Bypass -File deploy.ps1
+# See README.md for the full explanation and emergency fallback procedure.
 data/recipes.json
