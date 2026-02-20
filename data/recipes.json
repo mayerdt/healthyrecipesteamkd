@@ -106,6 +106,63 @@
         "dan": 7
       },
       "lastModified": "2026-02-20"
+    },
+    {
+      "name": "Summer Berry Pasta Salad with Chicken Recipe",
+      "category": "pasta",
+      "calories": 344,
+      "servings": 10,
+      "prepTime": "20 min",
+      "cookTime": "10 min",
+      "totalTime": "",
+      "emoji": "🍝",
+      "source": "https://therealfooddietitians.com/summer-pasta-salad/",
+      "notes": "",
+      "ingredients": [
+        "6 ounces regular or gluten-free pasta of choice, cooked according to package directions and cooled (see notes)",
+        "2 cups loose-packed baby spinach leaves",
+        "2 cups cooked and diced chicken or shredded chicken",
+        "1½ cups fresh berries of choice (if using strawberries, slice them)",
+        "⅓ cup diced red onion",
+        "⅓ cup sliced toasted almonds**",
+        "¼ cup dried cranberries or dried cherries",
+        "2 green onions, ends trimmed, white and green parts thinly sliced",
+        "3 tablespoons chopped fresh basil, plus more for garnish",
+        "⅔ cup mayonnaise*",
+        "¼ cup apple cider vinegar",
+        "2 tablespoons lemon juice (½ of a large lemon)",
+        "2 tablespoons pure honey",
+        "1 tablespoon extra-virgin olive oil",
+        "2 teaspoons poppy seeds",
+        "¼ teaspoon fine salt",
+        "Pinch of black pepper"
+      ],
+      "steps": [
+        "Cook the pasta according to package directions until al dente. Then rinse under cold water to cool. (Note: The pasta can be cooked and cooled up to 2 days ahead of time.)",
+        "While the pasta is cooking, prepare the dressing: In a small bowl, whisk together the mayo, vinegar, lemon, honey, olive oil, poppy seeds, salt, and pepper until smooth. Set aside.",
+        "In a large bowl, combine the salad ingredients: the cooked pasta, the spinach, cooked chicken, berries, red onion, almonds, cranberries, green onions, and basil.",
+        "Pour the dressing over the salad ingredients and toss gently to combine.",
+        "Garnish with additional fresh basil if desired.",
+        "Serve right away or refrigerate until ready to serve, tossing gently just before serving.",
+        "Store leftovers in an airtight container in the refrigerator for up to 3 days."
+      ],
+      "tags": [
+        "summer pasta salad",
+        "salads"
+      ],
+      "nutrition": {
+        "calories": 344,
+        "fat": "20 g",
+        "saturatedFat": "3 g",
+        "carbs": "30 g",
+        "fiber": "3 g",
+        "sugar": "10 g",
+        "protein": "15 g",
+        "sodium": "320 mg"
+      },
+      "thumbnail": "https://therealfooddietitians.com/wp-content/uploads/2021/07/Summer-Berry-Pasta-Salad_LowRes-018-225x225.jpg",
+      "id": "rmlvdkpme3hi6",
+      "dateAdded": "2026-02-20"
     }
   ],
   "version": "1.0"
