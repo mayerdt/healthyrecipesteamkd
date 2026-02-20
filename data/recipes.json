@@ -397,7 +397,12 @@
       },
       "thumbnail": "https://www.yellowblissroad.com/wp-content/uploads/2018/12/Tortellini-Soup-social.jpg",
       "id": "rmlvdxikkvrbz",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 8
+      },
+      "lastModified": "2026-02-20"
     }
   ],
   "version": "1.0"
