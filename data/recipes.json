@@ -100,7 +100,12 @@
       },
       "thumbnail": "https://www.budgetbytes.com/wp-content/uploads/2012/10/Chicken-and-Lime-Soup-above.jpg",
       "id": "rmlvcyss2lhqf",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 7
+      },
+      "lastModified": "2026-02-20"
     }
   ],
   "version": "1.0"
