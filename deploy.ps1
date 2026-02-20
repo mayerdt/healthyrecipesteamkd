@@ -1,10 +1,31 @@
 # deploy.ps1 — Safe push that NEVER overwrites live recipe data
 # Usage: powershell -ExecutionPolicy Bypass -File deploy.ps1
 #
-# Why this exists:
-#   data/recipes.json is written by the browser via the GitHub Contents API.
-#   We use --skip-worktree so git never stages local changes to this file,
-#   meaning a git push can never overwrite the live recipe data on GitHub.
+# ─────────────────────────────────────────────────────────────────────────────
+# ARCHITECTURE — READ THIS BEFORE USING RAW GIT PUSH
+# ─────────────────────────────────────────────────────────────────────────────
+# data/recipes.json is the live recipe database. It is written directly to
+# GitHub by the BROWSER via the GitHub Contents API (PUT /contents/...) every
+# time a recipe is added, updated, rated, or deleted.
+#
+# This means GitHub's main branch gets new commits from the browser at any
+# time — completely outside your local git history. If you run `git push`
+# without pulling first, git will reject it (non-fast-forward). If you run
+# `git push --force`, you WIPE all the live recipe data.
+#
+# THE FIX — this script does three things:
+#   1. Marks data/recipes.json with --skip-worktree so git never stages it.
+#      Even after `git pull` restores it locally, git treats it as invisible.
+#   2. Runs `git pull --rebase` to incorporate any browser-written recipe
+#      commits from GitHub before pushing.
+#   3. Runs `git push` normally (never --force).
+#
+# IF THIS SCRIPT FAILS (e.g. terminal stuck in vim / rebase conflict):
+#   - Press q or :q! to escape the editor, then `git rebase --abort`
+#   - Fallback: push files directly via GitHub Contents API (see README.md)
+#     then sync local: `git fetch origin; git reset --hard origin/main`
+#     then re-run: `git update-index --skip-worktree data/recipes.json`
+# ─────────────────────────────────────────────────────────────────────────────
 
 Set-Location $PSScriptRoot
 
