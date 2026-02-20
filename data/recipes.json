@@ -454,6 +454,57 @@
       "thumbnail": "https://grilledcheesesocial.com/wp-content/uploads/2019/06/baked-feta-pasta-tomatoes-grilled-cheese-social-6.jpg",
       "id": "rmlve7nwnqtur",
       "dateAdded": "2026-02-20"
+    },
+    {
+      "name": "Tallarines Verdes Recipe",
+      "category": "pasta",
+      "calories": 614,
+      "servings": 4,
+      "prepTime": "15 min",
+      "cookTime": "15 min",
+      "totalTime": "",
+      "emoji": "🍝",
+      "source": "https://www.acozykitchen.com/tallarines-verde-a-re-do",
+      "notes": "",
+      "ingredients": [
+        "2 cups packed spinach leaves",
+        "1 cup packed basil leaves",
+        "5 ounces cubed queso blanco or queso fresco (plus more for garnish)",
+        "2  garlic cloves (peeled )",
+        "1/2  shallot (peeled)",
+        "1/4 cup walnuts",
+        "1/4 cup olive oil",
+        "1/4 cup evaporated milk",
+        "Pinch kosher salt",
+        "Freshly ground pepper",
+        "1 pound pasta  (of choice )"
+      ],
+      "steps": [
+        "To a blender, add the spinach leaves, basil, queso blanco, garlic cloves, shallot, walnuts, olive oil, evaporated milk and a pinch of salt and a few turns of freshly cracked pepper. Blend for 30 seconds to a minute, scraping down the sides as needed. Give the green sauce a taste and adjust the salt accordingly (this type of cheese tends to be quite salty so you may only need a pinch or two extra).",
+        "Meanwhile, bring a pot of salted water to a boil. Drop the pasta in the water and cook according to package’s directions. Drain the pasta, reserving about 1/2 cup of pasta water. Add the pasta back to the pot and pour in the green sauce. Toss the pasta until it's thoroughly coated. Feel free to add a splash or two of pasta water to the pasta to thin the sauce out a bit. Divide between bowls and garnish with some queso fresco crumbles and freshly cracked pepper."
+      ],
+      "tags": [
+        "tallarines verdes",
+        "tallarines verdes receta",
+        "dinner",
+        "main course",
+        "hispanic recipes",
+        "peruvian",
+        "south american"
+      ],
+      "nutrition": {
+        "calories": 614,
+        "fat": "21 g",
+        "saturatedFat": "3 g",
+        "carbs": "88 g",
+        "fiber": "4 g",
+        "sugar": "5 g",
+        "protein": "17 g",
+        "sodium": "25 mg"
+      },
+      "thumbnail": "https://www.acozykitchen.com/wp-content/uploads/2018/02/tallarinesverdesrecipe.jpg",
+      "id": "rmlvf3wvd31os",
+      "dateAdded": "2026-02-20"
     }
   ],
   "version": "1.0"
