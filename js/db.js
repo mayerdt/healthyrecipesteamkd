@@ -82,7 +82,7 @@ class RecipeDB {
 
   async _loadSeed() {
     try {
-      const resp = await fetch('data/recipes.json');
+      const resp = await fetch('data/seed.json');
       const json = await resp.json();
       this._data = { recipes: json.recipes || [], version: json.version };
       this._persist();
