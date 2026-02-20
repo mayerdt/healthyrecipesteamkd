@@ -505,6 +505,57 @@
       "thumbnail": "https://www.acozykitchen.com/wp-content/uploads/2018/02/tallarinesverdesrecipe.jpg",
       "id": "rmlvf3wvd31os",
       "dateAdded": "2026-02-20"
+    },
+    {
+      "name": "Chicken Parmesan Casserole",
+      "category": "casseroles",
+      "calories": 412,
+      "servings": 6,
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
+      "emoji": "🥘",
+      "source": "https://www.eatingwell.com/recipe/281599/chicken-parmesan-casserole/",
+      "notes": "",
+      "ingredients": [
+        "8 ounces whole-wheat rotini",
+        "4 tablespoons extra-virgin olive oil, divided",
+        "1 cup chopped onion",
+        "1 (28 ounce) can no-salt-added crushed tomatoes",
+        "1 teaspoon garlic powder",
+        "0.5 teaspoon dried oregano",
+        "0.25 teaspoon crushed red pepper",
+        "0.5 teaspoon dried basil",
+        "0.5 teaspoon salt",
+        "2 cups shredded cooked chicken",
+        "1 cup shredded mozzarella cheese",
+        "0.5 cup panko breadcrumbs",
+        "0.25 cup grated Parmesan cheese",
+        "2 tablespoons chopped parsley"
+      ],
+      "steps": [
+        "Preheat oven to 400°F. Lightly coat a 9-by-13-inch baking dish with cooking spray.",
+        "Bring a large saucepan of water to a boil. Add 8 ounces rotini; cook according to package directions. Drain.",
+        "Meanwhile, heat 2 tablespoons oil in a large skillet over medium heat. Add 1 cup onion; cook, stirring, until starting to soften, about 3 minutes. Add 3 cans tomatoes, 2 teaspoons garlic powder, 1 teaspoon oregano, ¾ teaspoon crushed red pepper, ½ teaspoon basil and ½ teaspoon salt; bring to a simmer. Cook, stirring, until warmed through, about 3 minutes. Stir in 2 cups chicken and the cooked rotini. Transfer to the prepared baking dish and top with 1 cup mozzarella.",
+        "Stir ½ cup panko, ¼ cup Parmesan, 2 tablespoons parsley and the remaining 2 tablespoons oil together in a small bowl. Sprinkle over the casserole. Bake until hot and the topping is golden, 25 to 30 minutes."
+      ],
+      "tags": [
+        "dinner",
+        "american"
+      ],
+      "nutrition": {
+        "calories": 412,
+        "fat": "17 g",
+        "saturatedFat": "4 g",
+        "carbs": "43 g",
+        "fiber": "8 g",
+        "sugar": "15 g",
+        "protein": "27 g",
+        "sodium": "510 mg"
+      },
+      "thumbnail": "https://www.eatingwell.com/thmb/5HfHTRQ7gjhYPUaYeCIshfb5SaI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-parmesan-casserole-hero-1x1-15186_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-8483e47aa4d042da9d641ddfbb440226.jpg",
+      "id": "rmlvg6b2ahaz6",
+      "dateAdded": "2026-02-20"
     }
   ],
   "version": "1.0"
