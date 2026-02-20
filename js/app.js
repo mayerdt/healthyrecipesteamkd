@@ -16,7 +16,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderCategoryBar();
   renderRecipes();
   bindEvents();
+  // Background: fill in missing thumbnails for already-saved recipes
+  backfillThumbnails();
 });
+
+async function backfillThumbnails() {
+  const recipes = recipeDB.getAll().filter(r => !r.thumbnail);
+  if (!recipes.length) return;
+  let updated = false;
+  for (const r of recipes) {
+    const thumb = await fetchThumbnailFromMealDB(r.name);
+    if (thumb) {
+      await recipeDB.update(r.id, { thumbnail: thumb });
+      updated = true;
+    }
+  }
+  if (updated) renderRecipes();
+}
 
 // ── Render ────────────────────────────────────────────────────
 function renderStats() {
