@@ -132,8 +132,13 @@ class RecipeDB {
     recipe.dateAdded = recipe.dateAdded || new Date().toISOString().slice(0, 10);
     this._data.recipes.push(recipe);
     this._persist();
-    await this._syncToGitHub();
-    return recipe;
+    try {
+      await this._syncToGitHub();
+      return { ...recipe, _syncOk: true };
+    } catch (e) {
+      console.warn('[db] add() sync failed:', e.message);
+      return { ...recipe, _syncOk: false, _syncError: e.message };
+    }
   }
 
   /** Update an existing recipe */
@@ -142,8 +147,13 @@ class RecipeDB {
     if (idx === -1) return null;
     this._data.recipes[idx] = { ...this._data.recipes[idx], ...updates, lastModified: new Date().toISOString().slice(0, 10) };
     this._persist();
-    await this._syncToGitHub();
-    return this._data.recipes[idx];
+    try {
+      await this._syncToGitHub();
+      return { ...this._data.recipes[idx], _syncOk: true };
+    } catch (e) {
+      console.warn('[db] update() sync failed:', e.message);
+      return { ...this._data.recipes[idx], _syncOk: false, _syncError: e.message };
+    }
   }
 
   /** Save notes for a recipe (quick path, no GitHub sync) */
@@ -161,7 +171,13 @@ class RecipeDB {
   async remove(id) {
     this._data.recipes = this._data.recipes.filter(r => r.id !== id);
     this._persist();
-    await this._syncToGitHub();
+    try {
+      await this._syncToGitHub();
+      return { _syncOk: true };
+    } catch (e) {
+      console.warn('[db] remove() sync failed:', e.message);
+      return { _syncOk: false, _syncError: e.message };
+    }
   }
 
   /** Export all data as JSON string */
@@ -219,12 +235,13 @@ class RecipeDB {
 
   async _syncToGitHub() {
     const s = getSettings();
-    if (!s.githubToken || !s.githubOwner || !s.githubRepo) return;
-    try {
-      await this._ghUpdateFile(s, 'data/recipes.json', JSON.stringify(this._data, null, 2));
-    } catch (e) {
-      console.warn('GitHub sync failed:', e.message);
+    console.log('[db] sync — token:', s.githubToken ? s.githubToken.slice(0,12)+'...' : 'MISSING',
+               'owner:', s.githubOwner || 'MISSING', 'repo:', s.githubRepo || 'MISSING');
+    if (!s.githubToken || !s.githubOwner || !s.githubRepo) {
+      throw new Error('GitHub credentials not found — check config.js loaded correctly');
     }
+    await this._ghUpdateFile(s, 'data/recipes.json', JSON.stringify(this._data, null, 2));
+    console.log('[db] ✅ Synced to GitHub successfully');
   }
 
   async _ghUpdateFile(s, path, content) {

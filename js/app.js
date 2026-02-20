@@ -415,10 +415,6 @@ async function confirmAddRecipe() {
   try {
     const saved = await recipeDB.add(recipe);
 
-    // Attempt to save recipe page to GitHub
-    const githubSaved = await recipeDB.saveRecipePage(saved);
-    const ghMsg = githubSaved ? ' & saved to GitHub' : '';
-
     closeAddModal();
     renderStats();
     renderCategoryBar();
@@ -430,7 +426,11 @@ async function confirmAddRecipe() {
       if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
 
-    showToast(`✅ "${saved.name}" added${ghMsg}!`, 'success');
+    if (saved._syncOk) {
+      showToast(`✅ "${saved.name}" added & synced to GitHub!`, 'success');
+    } else {
+      showToast(`✅ "${saved.name}" added locally — ⚠️ GitHub sync failed: ${saved._syncError}`, 'warning');
+    }
   } catch (e) {
     showToast('Error saving recipe: ' + e.message, 'error');
   } finally {

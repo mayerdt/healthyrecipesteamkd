@@ -890,6 +890,7 @@ h3 { font-size: 1.25rem; }
 .toast.toast-success { background: var(--secondary); }
 .toast.toast-error { background: #C92A2A; }
 .toast.toast-info { background: #1971C2; }
+.toast.toast-warning { background: #E67700; }
 .toast .toast-icon { font-size: 1.1rem; flex-shrink: 0; }
 
 /* ============================================================
