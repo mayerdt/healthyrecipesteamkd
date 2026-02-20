@@ -3,26 +3,39 @@
 #
 # Why this exists:
 #   data/recipes.json is written by the browser via the GitHub Contents API.
-#   A plain `git push --force` would overwrite it with the empty local file.
-#   This script removes the file from git tracking, then pulls + pushes safely.
+#   We use --skip-worktree so git never stages local changes to this file,
+#   meaning a git push can never overwrite the live recipe data on GitHub.
 
 Set-Location $PSScriptRoot
 
-# Step 1: Untrack data/recipes.json from git index (stop git from managing it)
+# Step 1: Ensure data/recipes.json is marked skip-worktree
+#         (git won't stage or push local changes to it)
 $tracked = git ls-files data/recipes.json
 if ($tracked) {
-    Write-Host "Removing data/recipes.json from git tracking..."
-    git rm --cached data/recipes.json
+    $flags = git ls-files -v data/recipes.json
+    if ($flags -notmatch '^S') {
+        Write-Host "Marking data/recipes.json as skip-worktree..."
+        git update-index --skip-worktree data/recipes.json
+    }
 }
 
-# Step 2: Stage any pending changes
+# Step 2: Stage any pending code changes (data/recipes.json is safely skipped)
 git add -A
 
 # Step 3: Pull remote changes (incorporates any API recipe commits) then push
 Write-Host "Pulling remote changes..."
 git pull --rebase
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: pull --rebase failed. Aborting deploy."
+    git rebase --abort 2>$null
+    exit 1
+}
 
 Write-Host "Pushing..."
 git push
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "ERROR: push failed."
+    exit 1
+}
 
 Write-Host "Done! Recipe data on GitHub is preserved."
