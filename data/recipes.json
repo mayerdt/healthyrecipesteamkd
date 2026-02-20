@@ -342,6 +342,62 @@
       "thumbnail": "https://www.simplyscratch.com/wp-content/uploads/2020/03/Small-Batch-Lasagna-l-SimplyScratch.com-easy-smallbatch-lasagna-dinner-pasta-bakedpasta-recipe-20.jpg",
       "id": "rmlvdwwbsr3tq",
       "dateAdded": "2026-02-20"
+    },
+    {
+      "name": "Sausage Tortellini Soup with Spinach",
+      "category": "soups",
+      "calories": 534,
+      "servings": 6,
+      "prepTime": "10 min",
+      "cookTime": "35 min",
+      "totalTime": "",
+      "emoji": "🍜",
+      "source": "https://www.yellowblissroad.com/tortellini-soup-with-italian-sausage-spinach/",
+      "notes": "",
+      "ingredients": [
+        "1 tablespoon vegetable oil",
+        "1 pound ground Italian sausage ((mild or spicy))",
+        "1/2 cup diced onion ((about 1/2 medium sized onion))",
+        "1 tablespoon minced garlic ((3-4 garlic cloves))",
+        "28 ounces canned crushed tomatoes",
+        "32 ounces vegetable or chicken broth",
+        "2 tablespoons fresh chopped basil ((or 1 teaspoon dried))",
+        "Salt and pepper (to taste)",
+        "9 ounces refrigerated cheese tortellini",
+        "2 cups packed fresh baby spinach",
+        "6  baguette slices ((about 1/3 of a baguette))",
+        "1 tablespoon butter",
+        "2 tablespoons freshly shredded Parmesan cheese"
+      ],
+      "steps": [
+        "Heat oil in a large pot or Dutch oven over medium-high heat. Add diced onion and sauté for 3-4 minutes until softened.",
+        "Add Italian sausage and garlic. Cook, breaking the sausage into pieces, until browned and no longer pink, about 4-5 minutes. Drain any excess grease.",
+        "Stir in crushed tomatoes, broth, basil, salt, and pepper. Bring to a boil, then reduce heat to low. Cover and simmer for 20-30 minutes.",
+        "Add tortellini and cook for 5 minutes, or until pasta is tender.",
+        "Stir in spinach, cover, and turn off heat. Let sit for 1-2 minutes until spinach is wilted.",
+        "Serve topped with Parmesan cheese and a cheesy crostini if desired.",
+        "For Crostini (Optional): Slice baguette into ½-inch thick pieces. Butter one side and place butter-side down in a hot skillet until golden. Flip, top with Parmesan, and cook until the other side is golden. Cover briefly if needed to melt cheese."
+      ],
+      "tags": [
+        "tortellini soup",
+        "dinner",
+        "soup",
+        "american",
+        "italian"
+      ],
+      "nutrition": {
+        "calories": 534,
+        "fat": "33 g",
+        "saturatedFat": "13 g",
+        "carbs": "40 g",
+        "fiber": "5 g",
+        "sugar": "9 g",
+        "protein": "22 g",
+        "sodium": "1654 mg"
+      },
+      "thumbnail": "https://www.yellowblissroad.com/wp-content/uploads/2018/12/Tortellini-Soup-social.jpg",
+      "id": "rmlvdxikkvrbz",
+      "dateAdded": "2026-02-20"
     }
   ],
   "version": "1.0"
