@@ -341,7 +341,12 @@
       },
       "thumbnail": "https://www.simplyscratch.com/wp-content/uploads/2020/03/Small-Batch-Lasagna-l-SimplyScratch.com-easy-smallbatch-lasagna-dinner-pasta-bakedpasta-recipe-20.jpg",
       "id": "rmlvdwwbsr3tq",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 8
+      },
+      "lastModified": "2026-02-20"
     },
     {
       "name": "Sausage Tortellini Soup with Spinach",
@@ -397,12 +402,7 @@
       },
       "thumbnail": "https://www.yellowblissroad.com/wp-content/uploads/2018/12/Tortellini-Soup-social.jpg",
       "id": "rmlvdxikkvrbz",
-      "dateAdded": "2026-02-20",
-      "ratings": {
-        "katie": null,
-        "dan": 8
-      },
-      "lastModified": "2026-02-20"
+      "dateAdded": "2026-02-20"
     }
   ],
   "version": "1.0"
