@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recipe — Team KD's Recipes</title>
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
   <style>
     /* Print styles */
     @media print {
       .site-header, .page-nav, .notes-section, .fab, .toast-container,
-      .btn-delete-recipe, .btn-print, .hero-actions { display: none !important; }
+      .btn-delete-recipe, .btn-print, .hero-actions, #edit-details-panel { display: none !important; }
       body { background: white; }
       .recipe-hero { background: white !important; border: none; }
       .detail-content { padding-top: 16px; }
@@ -77,7 +77,46 @@
             class="source-link hidden"
             aria-label="View GitHub recipe page"
           >🐙 GitHub Page</a>
+          <button class="btn btn-outline btn-sm" id="btn-edit-details">✏️ Edit Details</button>
           <button class="btn btn-danger btn-sm btn-delete-recipe" id="btn-delete-recipe" style="margin-left:auto">🗑 Delete</button>
+        </div>
+
+        <!-- Edit Details Panel (hidden by default, toggled by Edit Details button) -->
+        <div id="edit-details-panel" class="recipe-edit-panel" style="display:none">
+          <div class="edit-panel-header">
+            <span>✏️ Edit Recipe Details</span>
+            <button class="btn btn-ghost btn-sm" id="btn-cancel-edit">✕ Cancel</button>
+          </div>
+          <div class="edit-panel-grid">
+            <div class="edit-field edit-field-full">
+              <label class="edit-label" for="edit-name">Recipe Name</label>
+              <input type="text" id="edit-name" class="edit-input" />
+            </div>
+            <div class="edit-field">
+              <label class="edit-label" for="edit-category">Category</label>
+              <select id="edit-category" class="edit-input"></select>
+            </div>
+            <div class="edit-field">
+              <label class="edit-label" for="edit-calories">Calories (per serving)</label>
+              <input type="number" id="edit-calories" class="edit-input" min="0" />
+            </div>
+            <div class="edit-field">
+              <label class="edit-label" for="edit-servings">Servings</label>
+              <input type="number" id="edit-servings" class="edit-input" min="1" />
+            </div>
+            <div class="edit-field">
+              <label class="edit-label" for="edit-prep">Prep Time</label>
+              <input type="text" id="edit-prep" class="edit-input" placeholder="e.g. 20 min" />
+            </div>
+            <div class="edit-field">
+              <label class="edit-label" for="edit-cook">Cook Time</label>
+              <input type="text" id="edit-cook" class="edit-input" placeholder="e.g. 30 min" />
+            </div>
+          </div>
+          <div class="edit-panel-footer">
+            <button class="btn btn-success" id="btn-save-details">💾 Save Changes</button>
+            <span class="notes-saved-badge" id="details-saved-badge">✅ Saved!</span>
+          </div>
         </div>
       </div>
 
@@ -238,9 +277,9 @@
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════════════════════════════ -->
-<script src="js/config.js?v=8"></script>
-  <script src="js/db.js?v=8"></script>
-  <script src="js/recipe-page.js?v=8"></script>
+<script src="js/config.js?v=9"></script>
+  <script src="js/db.js?v=9"></script>
+  <script src="js/recipe-page.js?v=9"></script>
 
 </body>
 </html>
