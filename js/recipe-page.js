@@ -99,7 +99,7 @@ function renderRecipePage(recipe) {
 function buildStatsRow(recipe) {
   const container = document.getElementById('recipe-stats-row');
   const stats = [];
-  if (recipe.calories)   stats.push({ icon: '🔥', val: recipe.calories + ' cal', lbl: 'Per Serving' });
+  if (recipe.calories != null) stats.push({ icon: '🔥', val: recipe.calories + ' cal', lbl: 'Per Serving' });
   if (recipe.servings)   stats.push({ icon: '👥', val: recipe.servings, lbl: 'Servings' });
   if (recipe.prepTime)   stats.push({ icon: '⏱', val: recipe.prepTime, lbl: 'Prep Time' });
   if (recipe.cookTime)   stats.push({ icon: '🍳', val: recipe.cookTime, lbl: 'Cook Time' });
@@ -204,7 +204,7 @@ function renderNutrition(nut, fallbackCal, servings) {
     { val: nut.sugar,     lbl: 'Sugar' },
     { val: nut.sodium,    lbl: 'Sodium' },
     { val: nut.saturatedFat, lbl: 'Sat. Fat' },
-  ].filter(i => i.val);
+  ].filter(i => i.val != null && i.val !== '');
 
   if (!items.length) {
     container.closest('.detail-card').classList.add('hidden');
@@ -298,6 +298,73 @@ async function saveRatings() {
   }
 }
 
+// ── Edit Details Panel ────────────────────────────────────────
+function openEditDetails() {
+  const panel = document.getElementById('edit-details-panel');
+
+  // Populate category select with all available categories
+  const catSelect = document.getElementById('edit-category');
+  catSelect.innerHTML = Object.entries(CATEGORIES).map(([key, cat]) =>
+    `<option value="${key}"${key === currentRecipe.category ? ' selected' : ''}>${cat.emoji} ${cat.label}</option>`
+  ).join('');
+
+  // Populate fields from current recipe
+  document.getElementById('edit-name').value     = currentRecipe.name    || '';
+  document.getElementById('edit-calories').value = currentRecipe.calories != null ? currentRecipe.calories : '';
+  document.getElementById('edit-servings').value = currentRecipe.servings != null ? currentRecipe.servings : '';
+  document.getElementById('edit-prep').value     = currentRecipe.prepTime || '';
+  document.getElementById('edit-cook').value     = currentRecipe.cookTime || '';
+
+  panel.style.display = 'block';
+  document.getElementById('edit-name').focus();
+}
+
+function closeEditDetails() {
+  document.getElementById('edit-details-panel').style.display = 'none';
+}
+
+async function saveEditDetails() {
+  const name     = document.getElementById('edit-name').value.trim();
+  const category = document.getElementById('edit-category').value;
+  const calRaw   = document.getElementById('edit-calories').value;
+  const servRaw  = document.getElementById('edit-servings').value;
+  const prepTime = document.getElementById('edit-prep').value.trim();
+  const cookTime = document.getElementById('edit-cook').value.trim();
+
+  if (!name) { showPageToast('Recipe name cannot be empty', 'error'); return; }
+
+  const calories  = calRaw  !== '' ? parseInt(calRaw,  10) : 0;
+  const servings  = servRaw !== '' ? parseInt(servRaw, 10) : (currentRecipe.servings || 0);
+  // Keep nutrition.calories in sync with the top-level calories field
+  const nutrition = { ...(currentRecipe.nutrition || {}), calories };
+
+  const btn = document.getElementById('btn-save-details');
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+
+  const result = await recipeDB.update(currentRecipe.id, { name, category, calories, servings, prepTime, cookTime, nutrition });
+
+  btn.disabled = false;
+  btn.textContent = '💾 Save Changes';
+
+  if (result && result._syncOk === false) {
+    showPageToast(`⚠️ Saved locally but GitHub sync failed: ${result._syncError}`, 'warning');
+  } else {
+    const badge = document.getElementById('details-saved-badge');
+    if (badge) { badge.classList.add('show'); setTimeout(() => badge.classList.remove('show'), 3000); }
+    showPageToast('Recipe updated!', 'success');
+  }
+
+  // Update local copy and re-render the affected hero elements immediately
+  Object.assign(currentRecipe, { name, category, calories, servings, prepTime, cookTime, nutrition });
+  const cat = CATEGORIES[category] || { label: category, emoji: '🍽️' };
+  document.getElementById('hero-title').textContent    = name;
+  document.getElementById('hero-category').textContent = `${cat.emoji} ${cat.label}`;
+  document.title = `${name} — Team KD's Recipes`;
+  buildStatsRow(currentRecipe);
+  renderNutrition(currentRecipe.nutrition, currentRecipe.calories, currentRecipe.servings);
+}
+
 // ── Notes ─────────────────────────────────────────────────────
 function bindPageEvents() {
   // Back button
@@ -351,6 +418,16 @@ function bindPageEvents() {
   // Print
   const printBtn = document.getElementById('btn-print');
   if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+  // Edit details
+  const editBtn = document.getElementById('btn-edit-details');
+  if (editBtn) editBtn.addEventListener('click', openEditDetails);
+
+  const cancelEditBtn = document.getElementById('btn-cancel-edit');
+  if (cancelEditBtn) cancelEditBtn.addEventListener('click', closeEditDetails);
+
+  const saveDetailsBtn = document.getElementById('btn-save-details');
+  if (saveDetailsBtn) saveDetailsBtn.addEventListener('click', saveEditDetails);
 }
 
 function saveNotes() {
