@@ -321,9 +321,17 @@ function bindPageEvents() {
   if (deleteBtn) {
     deleteBtn.addEventListener('click', async () => {
       if (!confirm(`Delete "${currentRecipe.name}"? This cannot be undone.`)) return;
-      await recipeDB.remove(currentRecipe.id);
-      showPageToast('Recipe deleted', 'info');
-      setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+      deleteBtn.disabled = true;
+      deleteBtn.textContent = 'Deleting…';
+      const result = await recipeDB.remove(currentRecipe.id);
+      if (result._syncOk === false) {
+        showPageToast(`⚠️ Deleted locally but GitHub sync failed: ${result._syncError}`, 'warning');
+        deleteBtn.disabled = false;
+        deleteBtn.textContent = '🗑 Delete Recipe';
+      } else {
+        showPageToast('Recipe deleted', 'info');
+        setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+      }
     });
   }
 
