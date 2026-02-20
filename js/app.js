@@ -135,14 +135,25 @@ function buildRecipeCard(recipe) {
 
   const hasNotes = recipe.notes && recipe.notes.trim();
   const timeStr  = recipe.totalTime || recipe.cookTime || '';
+  const thumb    = recipe.thumbnail || '';
+
+  const cardTopHtml = thumb
+    ? `<div class="card-img-wrap">
+        <img class="card-img" src="${escHtml(thumb)}" alt="${escHtml(recipe.name)}" loading="lazy"
+             onerror="this.closest('.card-img-wrap').outerHTML='<div class=\'card-emoji-wrap\'><span class=\'card-emoji\'>${recipe.emoji || cat.emoji}</span></div>'">
+        <div class="card-badges">
+          ${hasNotes ? `<span class="badge-notes">📝 Notes</span>` : ''}
+        </div>
+      </div>`
+    : `<div class="card-emoji-wrap">
+        <span class="card-emoji">${recipe.emoji || cat.emoji}</span>
+        <div class="card-badges">
+          ${hasNotes ? `<span class="badge-notes">📝 Notes</span>` : ''}
+        </div>
+      </div>`;
 
   card.innerHTML = `
-    <div class="card-emoji-wrap">
-      <span class="card-emoji">${recipe.emoji || cat.emoji}</span>
-      <div class="card-badges">
-        ${hasNotes ? `<span class="badge-notes">📝 Notes</span>` : ''}
-      </div>
-    </div>
+    ${cardTopHtml}
     <div class="card-body">
       <div class="card-name">${highlightText(recipe.name, currentSearch)}</div>
       <div class="card-meta">
@@ -402,6 +413,7 @@ async function confirmAddRecipe() {
     steps:       stepsRaw ? stepsRaw.split(/\n{2,}|\n(?=\d+[\.\)]\s)/).map(s => s.replace(/^\d+[\.\)]\s*/, '').trim()).filter(Boolean) : [],
     tags:        tagsRaw ? tagsRaw.split(',').map(s => s.trim()).filter(Boolean) : [],
     nutrition:   pendingRecipe?.nutrition || {},
+    thumbnail:   pendingRecipe?.thumbnail || '',
   };
 
   if (!recipe.emoji) {
@@ -430,6 +442,16 @@ async function confirmAddRecipe() {
       showToast(`✅ "${saved.name}" added & synced to GitHub!`, 'success');
     } else {
       showToast(`✅ "${saved.name}" added locally — ⚠️ GitHub sync failed: ${saved._syncError}`, 'warning');
+    }
+
+    // If no thumbnail yet, silently try TheMealDB for a real food photo
+    if (!saved.thumbnail) {
+      fetchThumbnailFromMealDB(saved.name).then(thumb => {
+        if (thumb) {
+          recipeDB.update(saved.id, { thumbnail: thumb });
+          renderRecipes();
+        }
+      });
     }
   } catch (e) {
     showToast('Error saving recipe: ' + e.message, 'error');
@@ -508,6 +530,15 @@ function resetData() {
 }
 
 // ── Toast Notifications ───────────────────────────────────────
+async function fetchThumbnailFromMealDB(name) {
+  try {
+    const resp = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(name)}`);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    return data?.meals?.[0]?.strMealThumb || null;
+  } catch (_) { return null; }
+}
+
 function showToast(message, type = 'info') {
   const container = document.getElementById('toast-container');
   const toast = document.createElement('div');
