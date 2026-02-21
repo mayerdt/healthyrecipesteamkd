@@ -555,7 +555,12 @@
       },
       "thumbnail": "https://www.eatingwell.com/thmb/5HfHTRQ7gjhYPUaYeCIshfb5SaI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-parmesan-casserole-hero-1x1-15186_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-8483e47aa4d042da9d641ddfbb440226.jpg",
       "id": "rmlvg6b2ahaz6",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 6
+      },
+      "lastModified": "2026-02-21"
     }
   ],
   "version": "1.0"
