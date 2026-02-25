@@ -561,6 +561,49 @@
         "dan": 6
       },
       "lastModified": "2026-02-21"
+    },
+    {
+      "name": "Pineapple Coleslaw Recipe",
+      "category": "vegetables",
+      "calories": 227,
+      "servings": 4,
+      "prepTime": "20 min",
+      "cookTime": "",
+      "totalTime": "",
+      "emoji": "🍜",
+      "source": "https://www.lavenderandmacarons.com/pineapple-coleslaw-recipe/",
+      "notes": "",
+      "ingredients": [
+        "1 cup pineapple (fresh, diced into bite-sized pieces)",
+        "2 cups green cabbage (thinly shredded)",
+        "1/2 cup red cabbage (thinly shredded)",
+        "1/2  fennel bulb (small, core remove and white part shaved thin)",
+        "1  carrot (julienned or shredded)",
+        "2 tbsp fresh cilantro (chopped)",
+        "3 tbsp mayonnaise",
+        "2 tbsp Greek yogurt (for tang and lightness)",
+        "1 tbsp lime juice",
+        "1 tsp lime zest",
+        "1 tsp chili crisp (or sriracha)",
+        "1/4 tsp smoked paprika",
+        "salt (to taste)"
+      ],
+      "steps": [
+        "In a large bowl combine fresh pineapple, green and red cabbage, fennel, carrot and cilantro.",
+        "In a small bowl, whisk mayo, yogurt, lime juice and zest, chili crisp, smoked paprika, salt and pepper to taste.",
+        "Drizzle the dressing over the shredded vegetables and stir to combine.",
+        "Enjoy!"
+      ],
+      "tags": [
+        "side dish",
+        "american"
+      ],
+      "nutrition": {
+        "calories": 0
+      },
+      "thumbnail": "https://www.lavenderandmacarons.com/wp-content/uploads/2025/06/pineapple-coleslaw-recipe-8.jpg",
+      "id": "rmm2h7x0de3ci",
+      "dateAdded": "2026-02-25"
     }
   ],
   "version": "1.0"
