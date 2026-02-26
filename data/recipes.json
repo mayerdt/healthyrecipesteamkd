@@ -623,25 +623,6 @@
       "thumbnail": "",
       "id": "rmm2lbzh9ae0a",
       "dateAdded": "2026-02-25"
-    },
-    {
-      "name": "Chimmichurry chicken",
-      "category": "meat",
-      "calories": 0,
-      "servings": 4,
-      "prepTime": "",
-      "cookTime": "",
-      "totalTime": "",
-      "emoji": "🍖",
-      "source": "https://www.seriouseats.com/sheet-pan-chimichurri-chicken-recipe-11786235",
-      "notes": "",
-      "ingredients": [],
-      "steps": [],
-      "tags": [],
-      "nutrition": {},
-      "thumbnail": "",
-      "id": "rmm2lgk925tj0",
-      "dateAdded": "2026-02-25"
     }
   ],
   "version": "1.0"
