@@ -53,7 +53,12 @@
       },
       "thumbnail": "https://therealfooddietitians.com/wp-content/uploads/2025/07/grilled-chicken-with-burrata-5-225x225.jpg",
       "id": "rmlvcv00akvdd",
-      "dateAdded": "2026-02-20"
+      "dateAdded": "2026-02-20",
+      "ratings": {
+        "katie": null,
+        "dan": 9
+      },
+      "lastModified": "2026-03-10"
     },
     {
       "name": "Chicken and Lime Soup",
@@ -558,9 +563,9 @@
       "dateAdded": "2026-02-20",
       "ratings": {
         "katie": null,
-        "dan": 5
+        "dan": 6
       },
-      "lastModified": "2026-03-10"
+      "lastModified": "2026-02-21"
     },
     {
       "name": "Pineapple Coleslaw Recipe",
