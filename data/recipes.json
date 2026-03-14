@@ -686,7 +686,12 @@
       },
       "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2022/07/air-fryer-chicken-parmesan-TRR-1200-23-of-28.jpg",
       "id": "rmmqgu955kjap",
-      "dateAdded": "2026-03-14"
+      "dateAdded": "2026-03-14",
+      "ratings": {
+        "katie": null,
+        "dan": 9
+      },
+      "lastModified": "2026-03-14"
     }
   ],
   "version": "1.0"
