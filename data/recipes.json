@@ -633,6 +633,60 @@
         "dan": 4
       },
       "lastModified": "2026-03-10"
+    },
+    {
+      "name": "Air Fryer Chicken Parmesan",
+      "category": "pasta",
+      "calories": 466,
+      "servings": 2,
+      "prepTime": "15 min",
+      "cookTime": "20 min",
+      "totalTime": "",
+      "emoji": "🍝",
+      "source": "https://www.thereciperebel.com/air-fryer-chicken-parmesan/#wprm-recipe-container-30404",
+      "notes": "",
+      "ingredients": [
+        "1  boneless skinless chicken breast ((or two small))",
+        "2  large eggs",
+        "¾ cup Panko bread crumbs",
+        "¼ cup + 1 tablespoon grated Parmesan cheese",
+        "½ teaspoon Italian seasoning",
+        "¾ teaspoon salt",
+        "¼ teaspoon paprika",
+        "¼ teaspoon black pepper",
+        "¼ cup tomato sauce ((seasoned tomato pasta sauce))",
+        "½ cup shredded mozzarella cheese"
+      ],
+      "steps": [
+        "Preheat air fryer to 400 degrees F.",
+        "Split chicken breasts (butterflying them) to make two thinner pieces. Simply place your chicken breasts on a cutting board and place one hand flat on top. Use a sharp knife to cut the chicken breast in the middle all the way through. Pat dry with paper towel.",
+        "Whisk eggs together in a large shallow dish.",
+        "In another large shallow dish, combine bread crumbs, ¼ cup Parmesan, Italian seasoning, salt, paprila and black pepper.",
+        "Coat chicken in egg mixture, and allow excess to drip off.",
+        "Coat chicken in Panko mixture, pressing firmly to make sure they adhere well.",
+        "Spray the air fryer basket with non-aerosol oil spray. Spray both sides of the chicken with oil spray as well and place into the air fryer.",
+        "Cook for 5 minutes per side, until light golden.",
+        "Top each with half of the tomato sauce and mozzarella. Divide remaining 1 tablespoon Parmesan between the two and cook another 2 minutes or until cheese is melted. Check that the internal temperature has reached a minimum of 165 degrees F. Serve."
+      ],
+      "tags": [
+        "air fryer chicken parm",
+        "air fryer",
+        "main course",
+        "american"
+      ],
+      "nutrition": {
+        "calories": 466,
+        "fat": "24 g",
+        "saturatedFat": "11 g",
+        "carbs": "24 g",
+        "fiber": "2 g",
+        "sugar": "3 g",
+        "protein": "38 g",
+        "sodium": "2133 mg"
+      },
+      "thumbnail": "https://www.thereciperebel.com/wp-content/uploads/2022/07/air-fryer-chicken-parmesan-TRR-1200-23-of-28.jpg",
+      "id": "rmmqgu955kjap",
+      "dateAdded": "2026-03-14"
     }
   ],
   "version": "1.0"
