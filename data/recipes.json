@@ -692,6 +692,25 @@
         "dan": 9
       },
       "lastModified": "2026-03-14"
+    },
+    {
+      "name": "Creamy Chipotle Skillet Chicken Thighs",
+      "category": "meat",
+      "calories": 0,
+      "servings": 4,
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
+      "emoji": "🍖",
+      "source": "https://www.eatingwell.com/recipe/281445/creamy-chipotle-skillet-chicken-thighs/",
+      "notes": "",
+      "ingredients": [],
+      "steps": [],
+      "tags": [],
+      "nutrition": {},
+      "thumbnail": "",
+      "id": "rmmxiwuge2ff9",
+      "dateAdded": "2026-03-19"
     }
   ],
   "version": "1.0"
