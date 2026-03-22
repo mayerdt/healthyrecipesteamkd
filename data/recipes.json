@@ -711,6 +711,57 @@
       "thumbnail": "",
       "id": "rmmxiwuge2ff9",
       "dateAdded": "2026-03-19"
+    },
+    {
+      "name": "Simple Tomato Feta Cucumber Salad",
+      "category": "salads",
+      "calories": 157,
+      "servings": 8,
+      "prepTime": "15 min",
+      "cookTime": "10 min",
+      "totalTime": "",
+      "emoji": "🥗",
+      "source": "https://www.erinliveswhole.com/greek-cucumber-tomato-feta-salad/",
+      "notes": "",
+      "ingredients": [
+        "1 english cucumber, diced",
+        "2 pints grape/cherry tomatoes, chopped in half",
+        "8oz feta, diced",
+        "1/4 cup chopped parsley",
+        "1/4 cup olive oil",
+        "2 tbsp red wine vinegar",
+        "2 cloves garlic, minced",
+        "1 tsp dried oregano",
+        "1 tsp salt",
+        "1/2 tsp pepper"
+      ],
+      "steps": [
+        "Chop and prepare all veggies, cheese, and herbs.",
+        "In a large bowl, add diced cucumbers, chopped tomatoes, diced feta, and chopped parsley.",
+        "Pour on olive oil, vinegar, garlic, oregano, salt and pepper and mix until everything is combined.",
+        "Serve! This will last in the fridge for up to 5 days."
+      ],
+      "tags": [
+        "side dish",
+        "tomatoes",
+        "summer",
+        "summer dish",
+        "cucumber tomato feta",
+        "dinner"
+      ],
+      "nutrition": {
+        "calories": 157,
+        "fat": "13.3 g",
+        "saturatedFat": "5.3 g",
+        "carbs": "6 g",
+        "fiber": "1.2 g",
+        "sugar": "3.8 g",
+        "protein": "5.1 g",
+        "sodium": "556.7 mg"
+      },
+      "thumbnail": "https://www.erinliveswhole.com/wp-content/uploads/2023/04/tomato-cucumber-salad-5-225x225.jpg",
+      "id": "rmn22g36mqdkm",
+      "dateAdded": "2026-03-22"
     }
   ],
   "version": "1.0"
