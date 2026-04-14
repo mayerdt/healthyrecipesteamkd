@@ -800,6 +800,65 @@
       "thumbnail": "",
       "id": "rmnnbutfvotyh",
       "dateAdded": "2026-04-06"
+    },
+    {
+      "name": "Croque Madame",
+      "category": "breakfast",
+      "calories": 488,
+      "servings": 4,
+      "prepTime": "20 min",
+      "cookTime": "10 min",
+      "totalTime": "",
+      "emoji": "🥐",
+      "source": "https://howtofeedaloon.com/croque-madame/",
+      "notes": "",
+      "ingredients": [
+        "2 tbsp unsalted butter",
+        "2 tbsp all-purpose flour",
+        "1 cup whole milk (warmed)",
+        "½ cup Gruyere cheese (shredded)",
+        "1 tsp Dijon mustard",
+        "Kosher salt and ground black pepper",
+        "4 slices bread (white or sourdough)",
+        "4 tsp Dijon mustard",
+        "1/2 lb ham (sliced)",
+        "1 cup Mornay sauce",
+        "1 cup Gruyere cheese (grated)",
+        "2 tbsp unsalted butter",
+        "4  large eggs",
+        "Kosher salt and ground black pepper",
+        "2 tbsp chives (finely chopped (optional))"
+      ],
+      "steps": [
+        "In a medium-sized skillet, melt 2 tablespoons of the butter over medium-low heat.",
+        "Whisk in the flour, stirring often, for 1 to 2 minutes.",
+        "Slowly whisk in the warmed milk, and cook, whisking and stirring frequently, until thickened, about 3 to 5 minutes.",
+        "Remove from the heat and stir the cheese and the Dijon mustard (1 tsp).",
+        "Season with a pinch of salt and pepper.",
+        "Transfer to a bowl and cover with plastic wrap, set aside and let cool.",
+        "Preheat the oven to 425°F.",
+        "Line a rimmed baking sheet with parchment paper and arrange the bread slices in a single layer. Toast in the oven, turning once, until lightly browned on both sides, about 15 to 18 minutes. Remove from oven and set aside.",
+        "Spread the tops of the toasted bread with Dijon mustard.",
+        "Add an equal amount of the sliced ham to 2 of the bread slices. Top the ham with ¼ cup of the Mornay sauce and then sprinkle on about a ¼ cup of the cheese.",
+        "Top with the remaining bread slices, Dijon facing down.",
+        "Spread the remaining sauce over the tops of the sandwiches, and sprinkle each with the remaining cheese.",
+        "Return the sandwiches to the baking sheet and bake until the cheese is melty and starting to brown slightly in spots.",
+        "While the sandwiches are in the oven, melt 2 tbsp of butter in the skillet. Crack and add the eggs to the skillet. Season with salt and pepper and cook until the whites have just set, about 2 to 3 minutes for sunny-side-up eggs.",
+        "Remove the sandwiches from the oven and use a spatula to plate each one. Top with the fried eggs, and garnish with chopped chives, if desired. Serve at once."
+      ],
+      "tags": [
+        "grilled cheese",
+        "gruyere",
+        "mornay",
+        "brunch",
+        "french"
+      ],
+      "nutrition": {
+        "calories": 488
+      },
+      "thumbnail": "https://howtofeedaloon.com/wp-content/uploads/2025/04/croque-madame-sandwich-with-mornay-sauce-IG.jpg",
+      "id": "rmnz8nebdluvw",
+      "dateAdded": "2026-04-14"
     }
   ],
   "version": "1.0"
