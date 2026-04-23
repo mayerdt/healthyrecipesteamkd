@@ -858,7 +858,12 @@
       },
       "thumbnail": "https://howtofeedaloon.com/wp-content/uploads/2025/04/croque-madame-sandwich-with-mornay-sauce-IG.jpg",
       "id": "rmnz8nebdluvw",
-      "dateAdded": "2026-04-14"
+      "dateAdded": "2026-04-14",
+      "ratings": {
+        "katie": null,
+        "dan": 10
+      },
+      "lastModified": "2026-04-23"
     }
   ],
   "version": "1.0"
