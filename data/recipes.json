@@ -864,6 +864,52 @@
         "dan": 10
       },
       "lastModified": "2026-04-23"
+    },
+    {
+      "name": "Easy Baked Pork Chops",
+      "category": "casseroles",
+      "calories": 298,
+      "servings": 4,
+      "prepTime": "5 min",
+      "cookTime": "18 min",
+      "totalTime": "",
+      "emoji": "🥘",
+      "source": "https://www.iheartnaptime.net/pork-chops/",
+      "notes": "",
+      "ingredients": [
+        "2 Tablespoons dark brown sugar",
+        "1 teaspoon smoked paprika",
+        "1 teaspoon garlic powder",
+        "1/2 Tablespoon Kosher salt",
+        "1 teaspoon cracked black pepper",
+        "2 Tablespoons olive oil (, divided)",
+        "4  boneless, pork loin chops ((about 1 1/2-inch thick), trimmed and patted dry)"
+      ],
+      "steps": [
+        "Preheat the oven to 400℉.",
+        "Dry rub. In a small bowl, stir together 2 Tablespoons brown sugar, 1 teaspoon paprika, 1 teaspoon garlic powder, 1/2 teaspoon salt, and 1/2 teaspoon pepper.",
+        "Drizzle 1 Tablespoon olive oil over both sides of the pork chops. Rub the spice mixture all over the pork chops and place them in a 9x13-inch baking dish. Drizzle  the remaining 1 Tablespoon olive oil over the top.",
+        "Bake uncovered 18 minutes, depending on thickness, or until center reaches an internal temperature of 145℉.",
+        "Remove from oven and let rest 5 minutes before serving."
+      ],
+      "tags": [
+        "easy baked pork chops",
+        "main course",
+        "american"
+      ],
+      "nutrition": {
+        "calories": 298,
+        "fat": "16 g",
+        "saturatedFat": "4 g",
+        "carbs": "7 g",
+        "fiber": "0.4 g",
+        "sugar": "6 g",
+        "protein": "29 g",
+        "sodium": "939 mg"
+      },
+      "thumbnail": "https://www.iheartnaptime.net/wp-content/uploads/2023/07/Baked-Pork-Chops-I-Heart-Naptime.jpg",
+      "id": "rmohrebis8w0x",
+      "dateAdded": "2026-04-27"
     }
   ],
   "version": "1.0"
